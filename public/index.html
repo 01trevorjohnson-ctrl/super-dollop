@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Dollop — SEC Filing Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div id="sidebar-header">
+        <div class="logo">super-dollop</div>
+        <div class="tagline">SEC Filing Analyzer</div>
+      </div>
+
+      <div id="search-box">
+        <input id="ticker-input" type="text" placeholder="Ticker symbol (e.g. AAPL)" autocomplete="off" spellcheck="false" />
+        <button id="search-btn">Search</button>
+      </div>
+
+      <div id="loading-bar" hidden>
+        <div class="spinner"></div>
+        <span id="loading-msg">Searching…</span>
+      </div>
+
+      <div id="company-info"></div>
+      <div id="filings-list"></div>
+    </aside>
+
+    <!-- Main content -->
+    <main id="main">
+
+      <!-- Top: filing info + quote bar -->
+      <div id="top-panel">
+        <div id="quote-bar" hidden></div>
+        <div id="filing-header">
+          <span class="placeholder-text">Search for a ticker to get started</span>
+        </div>
+      </div>
+
+      <!-- Bottom: chat -->
+      <div id="chat-panel">
+        <div id="messages"></div>
+        <div id="chat-input-row">
+          <textarea
+            id="chat-input"
+            placeholder="Load a filing to start asking questions…"
+            rows="1"
+            disabled
+          ></textarea>
+          <button id="send-btn" disabled>Ask</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
