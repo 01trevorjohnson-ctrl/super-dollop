@@ -27,28 +27,29 @@ scene: !include scenes.yaml
 # Assistant (self-hosted)" section. Put the real values in secrets.yaml
 # (never commit that file) and drop the downloaded service account key at
 # homeassistant/google_service_account.json (also gitignored).
-google_assistant:
-  project_id: !secret google_assistant_project_id
-  service_account: !include google_service_account.json
-  report_state: true
-  exposed_domains:
-    - scene
-  entity_config:
-    scene.preset_movie_night:
-      name: Movie Night
-      expose: true
-    scene.preset_relax:
-      name: Relax
-      expose: true
-    scene.preset_bright_daytime:
-      name: Bright Daytime
-      expose: true
-    scene.preset_reading:
-      name: Reading
-      expose: true
-    scene.preset_party:
-      name: Party
-      expose: true
-    scene.preset_goodnight:
-      name: Goodnight
-      expose: true
+# Disabled until that setup is done (see README step 5) — re-enable then.
+# google_assistant:
+#   project_id: !secret google_assistant_project_id
+#   service_account: !include google_service_account.json
+#   report_state: true
+#   exposed_domains:
+#     - scene
+#   entity_config:
+#     scene.preset_movie_night:
+#       name: Movie Night
+#       expose: true
+#     scene.preset_relax:
+#       name: Relax
+#       expose: true
+#     scene.preset_bright_daytime:
+#       name: Bright Daytime
+#       expose: true
+#     scene.preset_reading:
+#       name: Reading
+#       expose: true
+#     scene.preset_party:
+#       name: Party
+#       expose: true
+#     scene.preset_goodnight:
+#       name: Goodnight
+#       expose: true

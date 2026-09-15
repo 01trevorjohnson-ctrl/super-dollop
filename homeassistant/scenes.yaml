@@ -55,15 +55,15 @@
       state: "on"
       brightness: 90
       color_temp_kelvin: 2700
-    light.trevor_lamp:
+    light.bedroom_trevor_lamp:
       state: "on"
       brightness: 120
       color_temp_kelvin: 2700
-    light.vivi_lamp:
+    light.bedroom_vivi_lamp:
       state: "on"
       brightness: 120
       color_temp_kelvin: 2700
-    light.bedroom_sofa_lamp:
+    light.bedroom_bedroom_sofa_lamp:
       state: "on"
       brightness: 120
       color_temp_kelvin: 2700
@@ -87,15 +87,15 @@
 - id: preset_reading
   name: Reading
   entities:
-    light.trevor_lamp:
+    light.bedroom_trevor_lamp:
       state: "on"
       brightness: 220
       color_temp_kelvin: 4000
-    light.vivi_lamp:
+    light.bedroom_vivi_lamp:
       state: "on"
       brightness: 220
       color_temp_kelvin: 4000
-    light.bedroom_sofa_lamp:
+    light.bedroom_bedroom_sofa_lamp:
       state: "off"
     light.hallway_all:
       state: "on"

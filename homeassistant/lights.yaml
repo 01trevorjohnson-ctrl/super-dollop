@@ -33,8 +33,6 @@
     - light.living_room_rincon_4
     - light.living_room_rincon_5
     - light.living_room_rincon_6
-    - light.living_room_rincon_7
-    - light.living_room_rincon_8
 
 - platform: group
   name: Living Room All
@@ -47,14 +45,14 @@
 - platform: group
   name: Hallway All
   entities:
-    - light.hallway_1
-    - light.hallway_2
-    - light.hallway_3
-    - light.hallway_4
+    - light.hallway_hallway_1
+    - light.hallway_hallway_2
+    - light.hallway_hallway_3
+    - light.hallway_hallway_4
 
 - platform: group
   name: Bedroom All
   entities:
-    - light.trevor_lamp
-    - light.vivi_lamp
-    - light.bedroom_sofa_lamp
+    - light.bedroom_trevor_lamp
+    - light.bedroom_vivi_lamp
+    - light.bedroom_bedroom_sofa_lamp

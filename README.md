@@ -8,7 +8,7 @@ domain.
 
 | Room | Brand | Lights |
 |---|---|---|
-| Living Room | Govee | Bookshelf (1), TV (4), Sofa (1), Rincon (8) — 14 total |
+| Living Room | Govee | Bookshelf (1), TV (4), Sofa (1), Rincon (6) — 12 total |
 | Hallway | Hue | 4, linear arrangement |
 | Bedroom | Hue | Trevor Lamp, Vivi Lamp, Sofa Lamp |
 
@@ -76,7 +76,7 @@ entity IDs afterward:
 
 - **Govee Home app**: name the 14 Living Room lights "Living Room
   Bookshelf", "Living Room TV 1"–"TV 4", "Living Room Sofa", "Living Room
-  Rincon 1"–"Rincon 8".
+  Rincon 1"–"Rincon 6".
 - **Hue app**: keep "Trevor Lamp", "Vivi Lamp", name the third one
   "Bedroom Sofa Lamp" (to avoid colliding with the Living Room Sofa), and
   name the hallway lights "Hallway 1"–"Hallway 4" in their physical

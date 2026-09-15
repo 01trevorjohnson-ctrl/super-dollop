@@ -13,3 +13,14 @@ homeassistant/tts/
 homeassistant/blueprints/
 homeassistant/deps/
 homeassistant/tmp/
+
+# HACS and other third-party custom integrations — downloaded, not source
+homeassistant/custom_components/
+homeassistant/.HA_VERSION
+homeassistant/.ha_run.lock
+homeassistant/.cache/
+
+# Orphaned config dir from a previous container, not used by docker-compose.yml
+/config/
+
+.DS_Store
