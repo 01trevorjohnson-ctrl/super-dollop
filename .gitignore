@@ -1,0 +1,15 @@
+# Secrets — never commit these
+homeassistant/secrets.yaml
+homeassistant/google_service_account.json
+docker/.env
+
+# Home Assistant runtime state (created once HA actually runs against
+# ./homeassistant as its config dir — not part of this repo's source)
+homeassistant/.storage/
+homeassistant/.cloud/
+homeassistant/home-assistant.log*
+homeassistant/home-assistant_v2.db*
+homeassistant/tts/
+homeassistant/blueprints/
+homeassistant/deps/
+homeassistant/tmp/

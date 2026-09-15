@@ -1,0 +1,60 @@
+# Light groups (bundles of individual bulbs into one dimmable/colorable
+# light entity). Groups make scenes.yaml shorter and give Google Home
+# clean voice targets ("turn off the TV lights") instead of 22 separate
+# devices to sift through.
+#
+# IMPORTANT: the `entities:` lists below are placeholders. Before you wire
+# any of this up:
+#   1. In the Govee Home app and the Hue app, rename each bulb/device to
+#      match the names implied here (e.g. "Living Room TV 1"..."TV 4",
+#      "Hallway 1"..."Hallway 4", "Trevor Lamp", "Vivi Lamp",
+#      "Bedroom Sofa Lamp") BEFORE adding the Govee/Hue integrations in
+#      Home Assistant. HA slugifies device names into entity IDs, so
+#      naming things well up front means the placeholders below mostly
+#      just work.
+#   2. After adding the integrations, check Settings > Devices & Services
+#      > Entities and fix any entity_id that doesn't match what's listed
+#      here.
+
+- platform: group
+  name: Living Room TV
+  entities:
+    - light.living_room_tv_1
+    - light.living_room_tv_2
+    - light.living_room_tv_3
+    - light.living_room_tv_4
+
+- platform: group
+  name: Living Room Rincon
+  entities:
+    - light.living_room_rincon_1
+    - light.living_room_rincon_2
+    - light.living_room_rincon_3
+    - light.living_room_rincon_4
+    - light.living_room_rincon_5
+    - light.living_room_rincon_6
+    - light.living_room_rincon_7
+    - light.living_room_rincon_8
+
+- platform: group
+  name: Living Room All
+  entities:
+    - light.living_room_bookshelf
+    - light.living_room_tv
+    - light.living_room_sofa
+    - light.living_room_rincon
+
+- platform: group
+  name: Hallway All
+  entities:
+    - light.hallway_1
+    - light.hallway_2
+    - light.hallway_3
+    - light.hallway_4
+
+- platform: group
+  name: Bedroom All
+  entities:
+    - light.trevor_lamp
+    - light.vivi_lamp
+    - light.bedroom_sofa_lamp

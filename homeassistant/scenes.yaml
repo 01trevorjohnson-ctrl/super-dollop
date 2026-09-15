@@ -1,0 +1,141 @@
+# Whole-house light presets, built on top of the groups in lights.yaml.
+# Each becomes a `scene.<name>` entity you can expose to Google Home.
+#
+# Caveats to check against your actual hardware:
+#   - Govee (Living Room): most Govee smart lights support full RGB, so
+#     these use `rgb_color`. If any of your Bookshelf/TV/Sofa/Rincon
+#     lights are brightness-only, drop the color key for those entities.
+#   - Hue (Hallway, Bedroom): these presets assume White Ambiance bulbs
+#     and only set `color_temp_kelvin`. If Trevor/Vivi/Sofa Lamp or the
+#     Hallway lights are Hue Color bulbs, feel free to add `rgb_color`
+#     instead for punchier presets.
+
+- id: preset_movie_night
+  name: Movie Night
+  entities:
+    light.living_room_tv:
+      state: "on"
+      brightness: 60
+      rgb_color: [30, 30, 70]      # dim blue bias light behind the TV
+    light.living_room_bookshelf:
+      state: "on"
+      brightness: 35
+      rgb_color: [255, 147, 41]    # warm amber
+    light.living_room_sofa:
+      state: "off"
+    light.living_room_rincon:
+      state: "off"
+    light.hallway_all:
+      state: "on"
+      brightness: 15
+      color_temp_kelvin: 2700
+    light.bedroom_all:
+      state: "off"
+
+- id: preset_relax
+  name: Relax
+  entities:
+    light.living_room_bookshelf:
+      state: "on"
+      brightness: 120
+      rgb_color: [255, 174, 66]
+    light.living_room_sofa:
+      state: "on"
+      brightness: 120
+      rgb_color: [255, 174, 66]
+    light.living_room_tv:
+      state: "on"
+      brightness: 90
+      rgb_color: [255, 174, 66]
+    light.living_room_rincon:
+      state: "on"
+      brightness: 100
+      rgb_color: [255, 174, 66]
+    light.hallway_all:
+      state: "on"
+      brightness: 90
+      color_temp_kelvin: 2700
+    light.trevor_lamp:
+      state: "on"
+      brightness: 120
+      color_temp_kelvin: 2700
+    light.vivi_lamp:
+      state: "on"
+      brightness: 120
+      color_temp_kelvin: 2700
+    light.bedroom_sofa_lamp:
+      state: "on"
+      brightness: 120
+      color_temp_kelvin: 2700
+
+- id: preset_bright_daytime
+  name: Bright Daytime
+  entities:
+    light.living_room_all:
+      state: "on"
+      brightness: 255
+      rgb_color: [255, 255, 255]
+    light.hallway_all:
+      state: "on"
+      brightness: 255
+      color_temp_kelvin: 5000
+    light.bedroom_all:
+      state: "on"
+      brightness: 255
+      color_temp_kelvin: 5000
+
+- id: preset_reading
+  name: Reading
+  entities:
+    light.trevor_lamp:
+      state: "on"
+      brightness: 220
+      color_temp_kelvin: 4000
+    light.vivi_lamp:
+      state: "on"
+      brightness: 220
+      color_temp_kelvin: 4000
+    light.bedroom_sofa_lamp:
+      state: "off"
+    light.hallway_all:
+      state: "on"
+      brightness: 150
+      color_temp_kelvin: 4000
+    light.living_room_all:
+      state: "off"
+
+- id: preset_party
+  name: Party
+  entities:
+    light.living_room_tv:
+      state: "on"
+      brightness: 255
+      rgb_color: [162, 0, 255]
+    light.living_room_bookshelf:
+      state: "on"
+      brightness: 255
+      rgb_color: [255, 0, 120]
+    light.living_room_sofa:
+      state: "on"
+      brightness: 255
+      rgb_color: [255, 0, 120]
+    light.living_room_rincon:
+      state: "on"
+      brightness: 255
+      rgb_color: [0, 200, 255]
+    light.hallway_all:
+      state: "on"
+      brightness: 200
+      color_temp_kelvin: 3000
+    light.bedroom_all:
+      state: "off"
+
+- id: preset_goodnight
+  name: Goodnight
+  entities:
+    light.living_room_all:
+      state: "off"
+    light.hallway_all:
+      state: "off"
+    light.bedroom_all:
+      state: "off"
