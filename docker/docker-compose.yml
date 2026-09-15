@@ -1,11 +1,22 @@
 # Self-hosting route for Home Assistant on a machine you already own
-# (spare PC, mini PC, NAS, etc). If you're instead flashing a dedicated
-# Raspberry Pi with Home Assistant OS, you don't need this file — see the
-# README's "Option A: Raspberry Pi + HAOS" section.
+# (spare PC, mini PC, NAS, Mac, etc). If you're instead flashing a
+# dedicated Raspberry Pi with Home Assistant OS, you don't need this
+# file — see the README's "Option A: Raspberry Pi + HAOS" section.
 #
 # Usage (from this docker/ directory):
 #   cp .env.example .env      # then fill in CLOUDFLARE_TUNNEL_TOKEN
 #   docker compose up -d
+#
+# Networking note: this uses regular bridged networking with an explicit
+# port mapping rather than `network_mode: host`. Host networking is the
+# usual recommendation for Home Assistant (it lets local-network device
+# discovery — Hue bridge SSDP, mDNS — work automatically), but it's a
+# native-Linux-only Docker feature; on Docker Desktop for macOS or Windows
+# it doesn't expose the real LAN interface. Bridged mode below works
+# identically on Linux, macOS, and Windows. The tradeoff: Hue bridge
+# auto-discovery may not find your bridge — if so, add it in Home
+# Assistant by entering the bridge's IP address manually, which works
+# fine.
 
 services:
   homeassistant:
@@ -15,9 +26,8 @@ services:
       - ../homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
-    # Host networking is required for local device discovery (Hue bridge
-    # SSDP, mDNS, etc.) — bridged networking will break auto-discovery.
-    network_mode: host
+    ports:
+      - "8123:8123"
 
   cloudflared:
     container_name: cloudflared
@@ -26,8 +36,5 @@ services:
     command: tunnel run
     environment:
       - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
-    # Also uses host networking so it can reach Home Assistant at
-    # localhost:8123 without extra Docker network config.
-    network_mode: host
     depends_on:
       - homeassistant

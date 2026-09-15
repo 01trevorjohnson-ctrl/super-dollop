@@ -43,7 +43,7 @@ A Pi 4 or 5 (4GB) with an SSD (avoid SD cards long-term — they wear out),
 ignore the `docker/` folder.
 
 **Option B — Docker on a machine you already own** (old PC, mini PC,
-NAS). Uses `docker/docker-compose.yml` in this repo:
+NAS, spare Mac). Uses `docker/docker-compose.yml` in this repo:
 
 ```bash
 cd docker
@@ -52,9 +52,21 @@ docker compose up -d
 ```
 
 Home Assistant will be at `http://<that machine's IP>:8123`. Either way,
-the machine needs to stay on your home LAN so it can reach the Hue
-Bridge locally — that's not optional, Hue's local API doesn't work
-across the internet.
+the machine needs to stay on your home LAN (WiFi is fine, Ethernet isn't
+required) so it can reach the Hue Bridge locally — that's not optional,
+Hue's local API doesn't work across the internet.
+
+**Running this on a spare MacBook specifically**: needs Docker Desktop
+installed, and needs to be kept from sleeping while on AC power —
+otherwise Home Assistant goes offline whenever the machine dozes off.
+Leave the lid open and go to *System Settings > Battery > Options* and
+enable "Prevent automatic sleeping when the display is off" (or run `sudo
+pmset -c sleep 0 disksleep 0`); closed-lid operation is unreliable
+without an external display attached. Also note: because Docker Desktop
+for Mac runs containers inside a VM rather than natively, Hue Bridge
+auto-discovery in step 2 may not find your bridge automatically — if so,
+add it by entering the bridge's IP address manually when prompted, which
+works fine.
 
 ## 2. Name your devices, then pair them
 
@@ -105,7 +117,11 @@ gives Google Assistant the stable HTTPS URL it requires.
    B) or run `cloudflared` directly on the Pi (Option A: `sudo
    cloudflared service install <token>`).
 3. Back in the dashboard, add a **Public Hostname**: subdomain `home`,
-   domain `yourdomain.com`, service `http://localhost:8123`.
+   domain `yourdomain.com`, service `http://homeassistant:8123` if you're
+   running the `docker/docker-compose.yml` in this repo (cloudflared
+   reaches Home Assistant by its container name on the shared Docker
+   network), or `http://localhost:8123` if cloudflared is installed
+   directly on Home Assistant OS (Option A).
 4. Visit `https://home.yourdomain.com` to confirm it reaches your Home
    Assistant instance.
 
